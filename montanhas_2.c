@@ -90,7 +90,7 @@ int main () {
 	}
 	
 	//geração vertical
-	printf("Grafico:\n");
+	printf("\nGrafico:\n");
 	for(i = (maior); i >= 0; i--){
 		for(j = 0; j< length; j++){
 			
@@ -102,7 +102,7 @@ int main () {
 		}
 		printf("|\n");
 	}
-	printf("Maximizar a janela para melhor vizualiacao");
+	printf("\nMaximizar a janela para melhor vizualiacao");
 	
 	
 

@@ -8,23 +8,19 @@ int main () {
 	
 	int valores[65],
 		l_border_v, r_border_v = 0, 					//bordas valoeres
-		l_border_i = 0, r_border_i= 64, 					//bordas index's
+		l_border_i = 0, r_border_i= 64, 				//bordas index's
 		i = 64, j = 0,      							//contadores
 		rand_s, 										// valor aleatório
 		length = sizeof(valores)/sizeof(valores[0]),    //tamanho do vetor
-		maior = 0;    
+		maior = 0;    									//maior valorgerado
 		
 	time_t t;
-		
-//	atribuição de valores
  	srand((unsigned) time(&t));
  	
  	//valores iniciais
   	valores[l_border_i] = ("%d", rand() % 30);
  	valores[r_border_i] = ("%d", rand() % 30);
-// 	printf("valores da posição 0: %d\n", valores[0]);
-// 	printf("valores da posição 64: %d\n", valores[64]);
-// 
+
  	
 	//=========valor do meio ==========
 	rand_s = ("%d", rand() % 2); //valor aleatório
@@ -60,40 +56,33 @@ int main () {
 					valores[j]--;
 				}
 			}
-			
-			//print debug
-//			printf("\nvalor de j: %d\n", j);
-//			printf("valor na posição %d: %d\n", j, valores[j]);
-//			printf("valor de L: %d. valor de R: %d\n", l_border_i, r_border_i);
-// 			printf("########################################\n");
-
+			//index das bordas
 			l_border_i += i;
 			r_border_i = j;
 
-		} //==================================================
+		} 
 	}
 
 	for(i = 0; i<= length; i++){
 		printf("Valor na posição %d: %d\n", i, valores[i]);
 	}
 	
-
 	//======= Pega maior valor ======
 	for(i = 0; i <= length; i++){
 		if (maior < valores[i]){
 			maior = valores[i];
 		}
 	}
+	
 	printf("\nMaior valor: %d (Por favor expanda a janela ===>>)\n", maior);
-	for(i = 0; i < 130; i++){
-		printf("=");
-	}
+	for(i = 0; i < 130; i++){ printf("="); }
 	
 	//geração vertical
 	printf("\nGrafico:\n");
-	for(i = (maior); i >= 0; i--){
-		for(j = 0; j< length; j++){
-			
+	for(i = (maior); i >= 0; i--)
+	{
+		for(j = 0; j< length; j++)
+		{
 			if(valores[j] >= i){
 				printf("|%c", (char)254u);
 			}else{
@@ -102,22 +91,10 @@ int main () {
 		}
 		printf("|\n");
 	}
-	printf("\nMaximizar a janela para melhor vizualiacao");
 	
-	
-
-	//geração na horizontal
-//	
-//	for (i= 0; i <= length; i++)
-//	{
-//	    
-//	    printf("0.%d |", i - 1);
-//	    for (j = 0; j < valores[i]; j++)
-//	    {
-//	        printf("%c", (char)254u);
-//	    }
-//	    printf("\n");
-//	}
+	printf("\n***imizar a janela para melhor vizualiacao***");
+	printf("\nDigite qualquer tecla para encerrar...");
+	scanf("%d", &i);
 
 	return 0;
 }
